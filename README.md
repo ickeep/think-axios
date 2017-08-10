@@ -59,6 +59,6 @@ const indexData = await this.httpPost(url, params, conf)
 {"errno":0,"errmsg":"","data":""}
 
 // 失败
-{"errno":0,"errmsg":"","data":""}
+{"errno":1,"errmsg":"","data":""}
 
 ``` 
