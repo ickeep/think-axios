@@ -61,7 +61,7 @@ module.exports = (app, conf = {}) => {
     return axios.post(url, opt, conf).then(res => Object.assign(dataDf, {
       errno: 0,
       data: res.data
-    }), res => httpError(res.response))
+    }), res => httpError(res))
   }
 
   return {

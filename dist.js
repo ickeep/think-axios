@@ -92,7 +92,7 @@ module.exports = function (app) {
         data: res.data
       });
     }, function (res) {
-      return httpError(res.response);
+      return httpError(res);
     });
   }
 
