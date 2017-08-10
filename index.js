@@ -26,13 +26,13 @@ module.exports = (app, conf = {}) => {
     if (typeof query === 'object') {
       Object.keys(query).forEach((key) => {
         if (typeof query[key] !== 'undefined' && query[key] !== 'undefined' && query[key] !== '') {
-        if (type === '?') {
-          urlText += `&${key}=${query[key]}`
-        } else {
-          urlText += `/${key}/${query[key]}`
+          if (type === '?') {
+            urlText += `&${key}=${query[key]}`
+          } else {
+            urlText += `/${key}/${query[key]}`
+          }
         }
-      }
-    })
+      })
     }
     return urlText.replace(/^&/, '?')
   }
@@ -76,6 +76,11 @@ module.exports = (app, conf = {}) => {
       httpPost
     },
     controller: {
+      axios,
+      httpGet,
+      httpPost
+    },
+    service: {
       axios,
       httpGet,
       httpPost

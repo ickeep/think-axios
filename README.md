@@ -1,42 +1,64 @@
-# vue-load-script
+# think-axios
 
 ### Install
 
 ``` js
 # npm
-npm install --save vue-load-script
+npm install --save think-axios
 ``` 
 
 ``` js
 # yarn
-yarn add vue-load-script
+yarn add think-axios
 ``` 
 
 ### Use
-
+引入
 ``` js
-import LoadScript from 'vue-load-script'
-Vue.use(LoadScript)
+// config/extend.js
+const axios = require('think-axios')
+module.exports = [
+  model(think.app),
+  axios(think.app,conf={})
+]
+``` 
+使用
+``` js
+this.axios() 
+this.httpGet()
+this.httpPost()
+
+think.axios() 
+think.httpGet()
+think.httpPost()
+
+ctx.axios() 
+ctx.httpGet()
+ctx.httpPost()
+
+service.axios() 
+service.httpGet()
+service.httpPost()
+
 ``` 
 
-``` js
-Vue.$loadScript(url, script, maxTime, time)
-```
-url: 脚本路径地址
+其他  axios  与 https://github.com/mzabriskie/axios 方法一致
 
-script: 脚本名字 加载完会生成的全局变量名 例如加载 wx-js 会有 window.wx
-
-maxTime: 脚本加载最长时间
-
-time: 轮询时长
-
-### Demo
+httpGet , httpPost  经过简单封装,并且请求出错时，会打印log
 
 ``` js
-async created() {
-  const isDone = await this.$loadScript('//res.wx.qq.com/open/js/jweixin-1.2.0.js', 'wx', 10000, 10)
-  if (isDone) {
-    console.log('script load done')
-  }
-}
-```
+
+const indexData = await this.httpGet(url, params, conf)
+const indexData = await this.httpPost(url, params, conf)
+
+``` 
+返回数据格式
+``` js
+
+// 成功
+{"errno":0,"errmsg":"","data":""}
+
+// 失败
+{"errno":0,"errmsg":"","data":""}
+
+``` 

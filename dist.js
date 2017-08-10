@@ -111,6 +111,11 @@ module.exports = function (app) {
       axios: axios,
       httpGet: httpGet,
       httpPost: httpPost
+    },
+    service: {
+      axios: axios,
+      httpGet: httpGet,
+      httpPost: httpPost
     }
   };
 };
