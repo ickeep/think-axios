@@ -67,7 +67,11 @@ module.exports = function (app) {
     }
     app.think.logger.error('\u8BF7\u6C42\uFF1A' + url + ' \u51FA\u9519');
     app.think.logger.error(new Error(errmsg));
-    return (0, _assign2.default)(dataDf, { errmsg: errmsg });
+    var data = {};
+    if (res.response && res.response.data) {
+      data = res.response.data;
+    }
+    return (0, _assign2.default)(dataDf, { errmsg: errmsg, data: data });
   }
 
   function httpGet(url) {

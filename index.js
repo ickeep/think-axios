@@ -49,7 +49,11 @@ module.exports = (app, conf = {}) => {
     }
     app.think.logger.error(`请求：${url} 出错`)
     app.think.logger.error(new Error(errmsg))
-    return Object.assign(dataDf, { errmsg })
+    let data = {}
+    if (res.response && res.response.data) {
+      data = res.response.data
+    }
+    return Object.assign(dataDf, { errmsg, data })
   }
 
   function httpGet(url, opt = {}, conf = {}) {
