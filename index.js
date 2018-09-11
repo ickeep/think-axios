@@ -57,8 +57,10 @@ module.exports = (app, conf = {}) => {
   }
 
   function httpGet(url, opt = {}, conf = {}) {
-    const req = { url: url + serialize(opt), conf }
-    return axios(req).then(res => Object.assign(dataDf, { errno: 0, data: res.data }), res => httpError(res))
+    return axios.get(url + serialize(opt), conf).then(res => Object.assign(dataDf, {
+      errno: 0,
+      data: res.data
+    }), res => httpError(res))
   }
 
   function httpPost(url, opt = {}, conf = {}) {

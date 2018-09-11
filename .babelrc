@@ -6,6 +6,7 @@
         "loose": true
       }
     ],
+    "minify",
     "stage-1"
   ],
   "plugins": [
